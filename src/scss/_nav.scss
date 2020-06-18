@@ -1,0 +1,80 @@
+@import 'colors';
+@import 'size';
+
+nav {
+    ul {
+        // remove list styles
+        list-style-type: none;
+        padding-inline-start: 0;
+        margin: 0;
+        font-family: 'Inconsolata', monospace;
+
+        background-color: $light-blue;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        @include size(sm) {
+            flex-direction: column;
+        }
+
+        // ul.submenu
+        &.submenu {
+            li {
+                border: none;
+            }
+            @include size(md) {
+                position: absolute;
+                width: 100%;
+                left: 0;
+            }
+
+            @include size(lg) {
+                position: absolute;
+                flex-direction: column;
+            }
+        }
+    }
+    li {
+        
+        border: solid #fff 1px;
+        font-family: 'Inconsolata', monospace;
+        position: relative;
+        display: block;
+        @include size(md) {
+            position: static;
+            flex-grow: 1;
+        }
+        @include size(lg) {
+            border-bottom: 0;
+            border-top: 0;
+        }
+        a {
+            &:hover {
+                background-color: $dark-blue;
+            }
+            display: block;
+            text-align: center;
+            @include size(lg) {
+                text-align: left;
+            }
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+
+        }
+        .menu-icon {
+            display: block;
+            float: left;
+            width: 34px;
+            margin-right: -34px;
+            height: 22px;
+            background-image: url("/img/Hamburger.png");
+            &.open {
+                width: 27px;
+                margin-right: -27px;
+                height: 27px;
+                background-image: url("/img/X-Icon.png"); 
+            }
+        }
+    }
+}
